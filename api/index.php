@@ -78,6 +78,29 @@ $menu = [
       </div>
     </section>
   </main>
+
+  <section id="sobre" class="about-section">
+    <div class="container">
+      <div class="row align-items-center justify-content-center g-5">
+        <div class="col-md-5 col-lg-4 text-center">
+          <figure class="about-photo-frame">
+            <svg class="photo-border photo-border-top" viewBox="0 0 146 166" aria-hidden="true">
+              <path d="M3 3.24706C3.66 3.24706 20.83 3.24706 46.825 3.08206C65.9379 2.96074 83.98 2.90706 88.15 3.41206C90.6703 3.71728 93.32 4.57706 102.415 5.07706C124.348 6.28281 139.66 6.23706 140.825 8.39706C143.231 12.8582 142.34 17.2271 141.17 23.3771C138.391 37.9835 139.34 42.8871 139.165 59.6821C139.096 66.3394 141 80.7871 141.83 92.8721C142 102.787 142.33 110.237 142.83 119.657C143 128.087 143 143.927 142 162.247" />
+            </svg>
+            <img src="/assets/img/sobre-mim.png" alt="Rainara Vitória sentada à mesa">
+            <svg class="photo-border photo-border-bottom" viewBox="0 0 133 169" aria-hidden="true">
+              <path d="M3.30157 3.00064C3.96157 5.99064 5.30157 31.7606 3.64157 46.9856C3.20144 51.0224 2.30157 58.9406 3.96157 70.1156C6.58985 87.809 5.30157 99.9006 4.47157 108.481C3.84289 114.979 3.30157 124.921 4.29657 131.986C4.88531 136.166 6.30157 146.251 10.2616 158.751C14.0721 170.779 31.9516 162.671 41.2166 162.171C77.2395 160.227 83.2616 163.001 88.2866 163.996C92.9677 164.923 98.2816 163.681 106.412 162.171C111.542 162.001 120.782 162.001 125.377 161.341C129.972 160.681 129.642 159.361 129.302 158.001" />
+            </svg>
+          </figure>
+        </div>
+        <article class="col-md-7 col-lg-6 about-copy">
+          <h2>Sobre mim</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit vel eros a tempor. In sagittis facilisis nulla a aliquam. Nullam non dui quis augue tristique condimentum. Nulla porta sem nec ante facilisis commodo. Duis laoreet maximus odio eu dignissim. </p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit vel eros a tempor. In sagittis facilisis nulla a aliquam. Nullam non dui quis augue tristique condimentum. Nulla porta sem nec ante facilisis commodo. Duis laoreet maximus odio eu dignissim..</p>
+        </article>
+      </div>
+    </div>
+  </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/js/portfolio.js"></script>
 </body>
