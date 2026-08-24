@@ -1,0 +1,81 @@
+.projects-section {
+  padding: 6rem 0;
+  color: var(--creme);
+  background: var(--marrom);
+}
+
+.projects-header { margin-bottom: 2.8rem; }
+.projects-header p {
+  margin: 0 0 .2rem;
+  color: var(--dourado);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.projects-header h2 {
+  margin: 0;
+  font-family: Caveat, cursive;
+  font-size: clamp(3.5rem, 6vw, 5.3rem);
+  font-weight: 600;
+  line-height: .8;
+}
+
+.rough-filter { position: absolute; width: 0; height: 0; }
+.projetos-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
+.projeto-card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid rgba(208, 171, 91, .75);
+  border-radius: 1.2rem;
+  cursor: pointer;
+  background: var(--creme);
+  outline: none;
+}
+.projeto-card:focus-visible { outline: 3px solid var(--dourado); outline-offset: 4px; }
+
+.projeto-card .sketch {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+  color: var(--marrom);
+  transition: opacity .45s ease;
+}
+.projeto-card .sketch svg { width: 100%; flex: 1; }
+.projeto-card .sketch path,
+.projeto-card .sketch rect,
+.projeto-card .sketch circle { stroke: currentColor; stroke-width: 1.6; }
+.projeto-card .sketch .tracejado { stroke-dasharray: 4 5; opacity: .58; }
+.projeto-card .sketch .suave { opacity: .65; stroke-width: 1.1; }
+.projeto-card .num { color: var(--dourado); font-size: .78rem; letter-spacing: .08em; }
+.projeto-card h3 { margin: 0; font-family: Caveat, cursive; font-size: clamp(1.9rem, 3vw, 2.35rem); font-weight: 600; line-height: .9; }
+.projeto-card .sketch p { margin: .3rem 0 0; font-size: .78rem; color: var(--marrom); }
+
+.projeto-card .photo { position: absolute; inset: 0; background-position: center; background-size: cover; opacity: 0; transform: scale(1.08); transition: opacity .5s ease, transform .6s ease; }
+.projeto-card .shade { position: absolute; inset: 0; opacity: 0; background: linear-gradient(180deg, rgba(76, 50, 28, .05), rgba(76, 50, 28, .82)); transition: opacity .45s ease; }
+.projeto-card .tag { position: absolute; bottom: 1rem; left: 1rem; padding: .3rem 1rem .45rem; color: var(--marrom); background: var(--creme); border-radius: 4px; box-shadow: 0 4px 10px rgba(0, 0, 0, .25); font-family: Caveat, cursive; font-size: 1.5rem; font-weight: 600; opacity: 0; transform: rotate(-2deg) translateY(14px); transition: opacity .4s ease .08s, transform .4s ease .08s; }
+.projeto-card .corner { position: absolute; top: 1rem; right: 1rem; color: var(--creme); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; opacity: 0; transition: opacity .4s ease .05s; }
+.projeto-card--invertido .tag { right: 1rem; left: auto; }
+.projeto-card--invertido .corner { right: auto; left: 1rem; }
+
+.projeto-card:hover .sketch,
+.projeto-card:focus .sketch,
+.projeto-card.is-active .sketch { opacity: 0; }
+.projeto-card:hover .photo,
+.projeto-card:focus .photo,
+.projeto-card.is-active .photo { opacity: 1; transform: scale(1); }
+.projeto-card:hover .shade,
+.projeto-card:focus .shade,
+.projeto-card.is-active .shade,
+.projeto-card:hover .corner,
+.projeto-card:focus .corner,
+.projeto-card.is-active .corner { opacity: 1; }
+.projeto-card:hover .tag,
+.projeto-card:focus .tag,
+.projeto-card.is-active .tag { opacity: 1; transform: rotate(-2deg) translateY(0); }
+
+@media (max-width: 980px) { .projetos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; } }
+@media (max-width: 640px) { .projects-section { padding: 4.5rem 0; } .projetos-grid { grid-template-columns: 1fr; } .projeto-card { border-radius: 1rem; } }
