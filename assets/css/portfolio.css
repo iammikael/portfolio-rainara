@@ -1,0 +1,110 @@
+:root {
+  --marrom: #4C321C;
+  --dourado: #D0AB5B;
+  --creme: #E1D1B8;
+  --branco: #fff;
+}
+
+body {
+  background: #fff;
+  color: var(--creme);
+  font-family: "Architects Daughter", cursive;
+}
+
+.hero { position: relative; min-height: 100vh; overflow: hidden; background: var(--marrom); }
+.navbar { padding: 2.5rem 0; position: relative; z-index: 2; }
+.navbar-brand { color: var(--creme); font-size: .9rem; }
+.nav-link { color: var(--creme); font-size: .75rem; padding: .65rem 1rem !important; text-transform: uppercase; }
+.nav-link:hover, .nav-link:focus { color: var(--marrom); }
+.nav-link.active {
+  color: var(--marrom) !important;
+  background: var(--dourado);
+  clip-path: polygon(4% 8%, 10% 2%, 20% 7%, 30% 2%, 44% 8%, 59% 2%, 69% 7%, 80% 1%, 95% 8%, 98% 30%, 96% 51%, 100% 75%, 94% 95%, 80% 91%, 67% 98%, 50% 93%, 34% 98%, 18% 92%, 4% 96%, 1% 74%, 4% 55%, 0 29%);
+}
+
+.hero-content{
+  min-height: calc(100vh - 124px);
+  position: relative;
+  z-index: 1;
+}
+.signature{
+  font-family: Caveat, cursive;
+  font-size: clamp(7rem, 7vw, 6rem);
+  line-height: .8;
+  margin: 0;
+  white-space: nowrap;
+  color: var(--branco);
+}
+.signature .highlight{
+  color: var(--dourado);
+}
+.subtitle{
+  color: var(--branco);
+  margin: .45rem 0 0 11rem;
+  font-size: clamp(.9rem, 1.5vw, 1.5rem);
+}
+.logo{
+  margin: .55rem 0 0 0rem;
+  font-size: clamp( 1.2rem, 1.5vw, 1.2rem);
+  color: var(--dourado);
+}
+
+.floorplan-column { overflow: visible; }
+.floorplan { width: 510px; max-width: none; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .08)); }
+.floorplan .wall { stroke: var(--creme); stroke-width: 2.6; fill: none; }
+.floorplan .door { stroke: var(--dourado); stroke-width: 1.35; fill: none; }
+.floorplan .dimension { stroke: #9b8060; stroke-width: .8; fill: none; }
+.floorplan .room { fill: var(--creme); font: 12px "Architects Daughter", cursive; }
+.floorplan .measure { fill: #9b8060; font: 10px "Architects Daughter", cursive; }
+
+/*Animação da planta*/
+.floorplan.is-drawing .wall,
+.floorplan.is-drawing .door,
+.floorplan.is-drawing .dimension {
+  stroke-dasharray: 1100;
+  stroke-dashoffset: 1100;
+}
+
+.floorplan.is-drawing .room,
+.floorplan.is-drawing .measure { opacity: 0; }
+
+.floorplan.is-animated .wall,
+.floorplan.is-animated .door,
+.floorplan.is-animated .dimension {
+  stroke-dasharray: 1100;
+  animation: desenhar-planta 1.7s ease-out forwards;
+}
+
+.floorplan.is-animated .door { animation-delay: 1s; }
+.floorplan.is-animated .dimension { animation-delay: 1.35s; }
+.floorplan.is-animated .room,
+.floorplan.is-animated .measure {
+  animation: mostrar-identificacao .5s ease-out forwards;
+  animation-delay: 1.7s;
+}
+.floorplan.is-animated .measure { animation-delay: 1.95s; }
+
+@keyframes desenhar-planta {
+  from { stroke-dashoffset: 1100; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes mostrar-identificacao {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.decor { position: absolute; width: 210px; height: 366px; right: -100px; bottom: -142px; opacity: .18; }
+
+@media (max-width: 991.98px) {
+  .navbar { padding: 1.5rem 0; }
+  .navbar-collapse { background: var(--marrom); padding: 1rem; }
+  .hero-content { text-align: center; padding: 4rem 0 5rem; }
+  .subtitle { margin-left: 0; }
+  .floorplan { width: min(100%, 510px); max-width: 510px; margin-top: 3.5rem; }
+}
+
+@media (max-width: 575.98px) {
+  .signature { white-space: normal; }
+  .navbar-brand { font-size: .75rem; }
+}
