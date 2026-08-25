@@ -9,4 +9,9 @@ if ($uri !== '/' && is_file($arquivoSolicitado)) {
     return false;
 }
 
+if (preg_match('#^/projetos/[^/]+/?$#', $uri) === 1) {
+    require __DIR__ . '/api/projeto.php';
+    return;
+}
+
 require __DIR__ . '/api/index.php';

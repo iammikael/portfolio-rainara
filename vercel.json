@@ -7,6 +7,10 @@
   },
   "rewrites": [
     {
+      "source": "/projetos/:slug",
+      "destination": "/api/projeto.php?slug=:slug"
+    },
+    {
       "source": "/",
       "destination": "/api/index.php"
     }

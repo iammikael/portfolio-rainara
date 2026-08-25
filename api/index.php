@@ -12,23 +12,12 @@ $menu = [
     ['texto' => 'Projetos', 'link' => '#projetos', 'ativo' => false],
     ['texto' => 'Contato', 'link' => '#contato', 'ativo' => false],
 ];
-$croquis = [
-    'casa' => '<path d="M20,140 L20,60 L100,20 L180,60 L180,140 M20,140 L180,140 M85,140 L85,95 L115,95 L115,140" />',
-    'vidro' => '<path d="M20,140 L20,40 L180,40 L180,140 M20,90 L180,90" /><path d="M60,40 L60,140" class="tracejado" />',
-    'apartamento' => '<path d="M30,140 L30,50 L170,50 L170,140 Z M30,100 L170,100" /><rect x="70" y="60" width="30" height="30" class="suave" />',
-    'praca' => '<circle cx="100" cy="90" r="55" /><path d="M100,35 L100,145 M45,90 L155,90" class="tracejado" />',
-    'atelie' => '<path d="M20,120 L100,30 L180,120 Z M20,120 L180,120" />',
-    'cobertura' => '<rect x="30" y="40" width="140" height="100" rx="6" /><path d="M30,90 L170,90" class="suave" />',
-];
-
-$projetos = [
-    ['numero' => 'fl. 01', 'nome' => 'Teste ', 'categoria' => 'Residencial · Estudo', 'tipo' => 'Residencial', 'tag' => 'Casa', 'croqui' => 'casa', 'imagem' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=800&auto=format&fit=crop', 'inverter' => false],
-    ['numero' => 'fl. 02', 'nome' => 'Teste', 'categoria' => 'Residencial · Estudo', 'tipo' => 'Residencial', 'tag' => 'Casa', 'croqui' => 'casa', 'imagem' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop', 'inverter' => true],
-    ['numero' => 'fl. 03', 'nome' => 'Teste', 'categoria' => 'Residencial · Estudo', 'tipo' => 'Residencial', 'tag' => 'Casa', 'croqui' => 'casa', 'imagem' => 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=800&auto=format&fit=crop', 'inverter' => false],
-    ['numero' => 'fl. 04', 'nome' => 'Teste', 'categoria' => 'Residencial · Estudo', 'tipo' => 'Residencial', 'tag' => 'Casa', 'croqui' => 'casa', 'imagem' => 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=800&auto=format&fit=crop', 'inverter' => false],
-    ['numero' => 'fl. 05', 'nome' => 'Teste', 'categoria' => 'Residencial · Estudo', 'tipo' => 'Residencial', 'tag' => 'Casa', 'croqui' => 'casa', 'imagem' => 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop', 'inverter' => false],
-    ['numero' => 'fl. 06', 'nome' => 'Teste', 'categoria' => 'Residencial · Estudo', 'tipo' => 'Residencial', 'tag' => 'Casa', 'croqui' => 'casa', 'imagem' => 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=800&auto=format&fit=crop', 'inverter' => false],
-];
+require __DIR__ . '/dados-projetos.php';
+$imagemMiniatura = static function (string $url): string {
+    return str_contains($url, 'images.unsplash.com')
+        ? str_replace('w=1400', 'w=700', $url)
+        : $url;
+};
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -38,6 +27,8 @@ $projetos = [
   <title><?= htmlspecialchars($portfolio['nome'] . ' ' . $portfolio['sobrenome']) ?> | Estud. de Arquitetura</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="/assets/css/portfolio.css" rel="stylesheet">
@@ -105,7 +96,7 @@ $projetos = [
             <svg class="photo-border photo-border-top" viewBox="0 0 146 166" aria-hidden="true">
               <path d="M3 3.24706C3.66 3.24706 20.83 3.24706 46.825 3.08206C65.9379 2.96074 83.98 2.90706 88.15 3.41206C90.6703 3.71728 93.32 4.57706 102.415 5.07706C124.348 6.28281 139.66 6.23706 140.825 8.39706C143.231 12.8582 142.34 17.2271 141.17 23.3771C138.391 37.9835 139.34 42.8871 139.165 59.6821C139.096 66.3394 141 80.7871 141.83 92.8721C142 102.787 142.33 110.237 142.83 119.657C143 128.087 143 143.927 142 162.247" />
             </svg>
-            <img src="/assets/img/sobre-mim.png" alt="Rainara VitÃ³ria sentada Ã  mesa">
+            <img src="/assets/img/sobre-mim.png" alt="Rainara VitÃ³ria sentada Ã  mesa" loading="lazy" decoding="async">
             <svg class="photo-border photo-border-bottom" viewBox="0 0 133 169" aria-hidden="true">
               <path d="M3.30157 3.00064C3.96157 5.99064 5.30157 31.7606 3.64157 46.9856C3.20144 51.0224 2.30157 58.9406 3.96157 70.1156C6.58985 87.809 5.30157 99.9006 4.47157 108.481C3.84289 114.979 3.30157 124.921 4.29657 131.986C4.88531 136.166 6.30157 146.251 10.2616 158.751C14.0721 170.779 31.9516 162.671 41.2166 162.171C77.2395 160.227 83.2616 163.001 88.2866 163.996C92.9677 164.923 98.2816 163.681 106.412 162.171C111.542 162.001 120.782 162.001 125.377 161.341C129.972 160.681 129.642 159.361 129.302 158.001" />
             </svg>
@@ -127,30 +118,13 @@ $projetos = [
         <h2>Projetos</h2>
       </header>
 
-      <svg class="rough-filter" aria-hidden="true" focusable="false">
-        <filter id="rough" x="-20%" y="-20%" width="140%" height="140%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="noise"/>
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="4"/>
-        </filter>
-      </svg>
-
       <div class="projetos-grid">
         <?php foreach ($projetos as $projeto): ?>
-          <article class="projeto-card<?= $projeto['inverter'] ? ' projeto-card--invertido' : '' ?>" tabindex="0">
-            <div class="photo" style="background-image: url('<?= htmlspecialchars($projeto['imagem'], ENT_QUOTES, 'UTF-8') ?>')"></div>
+          <a class="projeto-card" href="/projetos/<?= htmlspecialchars($projeto['slug'], ENT_QUOTES, 'UTF-8') ?>" aria-label="Ver detalhes do projeto <?= htmlspecialchars($projeto['nome'], ENT_QUOTES, 'UTF-8') ?>">
+            <img class="photo" src="<?= htmlspecialchars($imagemMiniatura($projeto['imagem']), ENT_QUOTES, 'UTF-8') ?>" alt="" loading="lazy" decoding="async">
             <div class="shade"></div>
-            <div class="sketch">
-              <svg viewBox="0 0 200 160" fill="none" aria-hidden="true">
-                <g filter="url(#rough)"><?= $croquis[$projeto['croqui']] ?></g>
-              </svg>
-              <div>
-                <h3><?= htmlspecialchars($projeto['nome']) ?></h3>
-                <p><?= htmlspecialchars($projeto['categoria']) ?></p>
-              </div>
-            </div>
-            <span class="corner"><?= htmlspecialchars($projeto['tipo']) ?></span>
-            <span class="tag"><?= htmlspecialchars($projeto['tag']) ?></span>
-          </article>
+            <span class="tag"><?= htmlspecialchars($projeto['nome']) ?></span>
+          </a>
         <?php endforeach; ?>
       </div>
     </div>

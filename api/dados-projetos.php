@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1);
+
+$projetos = [
+    ['slug' => 'casa-cor', 'numero' => 'fl. 01', 'nome' => 'Casa Cor', 'categoria' => 'residencial · reforma', 'tipo' => 'Residencial', 'tag' => 'Casa Cor', 'croqui' => 'casa', 'imagem' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1400&auto=format&fit=crop', 'area' => '190 m²', 'ano' => '2025', 'inverter' => false],
+    ['slug' => 'residencia-vidro', 'numero' => 'fl. 02', 'nome' => 'Residência Vidro', 'categoria' => 'residencial · projeto novo', 'tipo' => 'Residencial', 'tag' => 'Res. Vidro', 'croqui' => 'vidro', 'imagem' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop', 'area' => '240 m²', 'ano' => '2025', 'inverter' => true],
+    ['slug' => 'ape-compacto', 'numero' => 'fl. 03', 'nome' => 'Apê Compacto', 'categoria' => 'interiores · 42m²', 'tipo' => 'Interiores', 'tag' => 'Apê Compacto', 'croqui' => 'apartamento', 'imagem' => 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?q=80&w=1400&auto=format&fit=crop', 'area' => '42 m²', 'ano' => '2024', 'inverter' => false],
+    ['slug' => 'praca-urbana', 'numero' => 'fl. 04', 'nome' => 'Praça Urbana', 'categoria' => 'urbanismo · estudo', 'tipo' => 'Urbanismo', 'tag' => 'Praça Urbana', 'croqui' => 'praca', 'imagem' => 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1400&auto=format&fit=crop', 'area' => 'Estudo urbano', 'ano' => '2024', 'inverter' => false],
+    ['slug' => 'atelie-madeira', 'numero' => 'fl. 05', 'nome' => 'Ateliê Madeira', 'categoria' => 'comercial · pavilhão', 'tipo' => 'Comercial', 'tag' => 'Ateliê Madeira', 'croqui' => 'atelie', 'imagem' => 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1400&auto=format&fit=crop', 'area' => '120 m²', 'ano' => '2024', 'inverter' => false],
+    ['slug' => 'cobertura-sul', 'numero' => 'fl. 06', 'nome' => 'Cobertura Sul', 'categoria' => 'residencial · reforma', 'tipo' => 'Residencial', 'tag' => 'Cobertura Sul', 'croqui' => 'cobertura', 'imagem' => 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?q=80&w=1400&auto=format&fit=crop', 'area' => '160 m²', 'ano' => '2025', 'inverter' => false],
+];
