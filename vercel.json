@@ -3,6 +3,9 @@
   "functions": {
     "api/index.php": {
       "runtime": "vercel-php@0.9.0"
+    },
+    "api/projeto.php": {
+      "runtime": "vercel-php@0.9.0"
     }
   },
   "rewrites": [
