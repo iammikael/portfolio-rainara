@@ -6,12 +6,19 @@
     },
     "api/projeto.php": {
       "runtime": "vercel-php@0.9.0"
+    },
+    "api/contato.php": {
+      "runtime": "vercel-php@0.9.0"
     }
   },
   "rewrites": [
     {
       "source": "/projetos/:slug",
       "destination": "/api/projeto.php?slug=:slug"
+    },
+    {
+      "source": "/contato",
+      "destination": "/api/contato.php"
     },
     {
       "source": "/",

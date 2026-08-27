@@ -14,4 +14,9 @@ if (preg_match('#^/projetos/[^/]+/?$#', $uri) === 1) {
     return;
 }
 
+if (rtrim($uri, '/') === '/contato') {
+    require __DIR__ . '/api/contato.php';
+    return;
+}
+
 require __DIR__ . '/api/index.php';

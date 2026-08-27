@@ -103,7 +103,7 @@ body {
   position:absolute;
   inset:-12px;
   width:calc(100% + 24px);
-  height:calc(100% - 10px);
+  height:calc(100% + 24px);
   pointer-events:none;
 }
 
@@ -281,9 +281,9 @@ body {
 
 .gallery-grid svg {
   position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
+  inset: -6px;
+  width:calc(100% + 12px);
+  height:calc(100% + 12px);
   z-index:1;
   overflow:visible;
   pointer-events:none;
@@ -434,6 +434,30 @@ body {
   text-align:right;
   justify-content:flex-end;
 }
+
+.site-footer {
+  margin-top:72px;
+  padding-bottom:4px;
+}
+
+.site-footer-line {
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  padding-top:20px;
+  border-top:1px solid rgba(237,234,224,.14);
+  color:var(--chalk-dim);
+  font:11px 'Architects Daughter',cursive;
+}
+
+.site-footer-credit {
+  margin:22px 0 0;
+  text-align:center;
+  color:rgba(225,209,184,.55);
+  font:10.5px 'Architects Daughter',cursive;
+}
+
+.site-footer a { color:var(--chalk); }
 
 @media (max-width:880px) {
   .project-detail {

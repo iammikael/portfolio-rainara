@@ -129,6 +129,22 @@ $imagemMiniatura = static function (string $url): string {
       </div>
     </div>
   </section>
+  <section id="contato" class="home-contact-section">
+    <div class="container">
+      <header class="home-contact-header">
+        <p>// vamos conversar</p>
+        <h2>Contato</h2>
+        <p class="home-contact-lead">Tem um projeto em mente, uma reforma ou só quer trocar ideia sobre um croqui? <strong>Me chama</strong> — respondo rapidinho por WhatsApp.</p>
+      </header>
+      <div class="home-contact-channels">
+        <a class="home-contact-channel accent" href="https://wa.me/5567900000000" target="_blank" rel="noopener"><span>WhatsApp</span><b>(67) 90000-0000</b><em>chamar →</em></a>
+        <a class="home-contact-channel" href="mailto:rainara.vitoria@email.com"><span>E-mail</span><b>rainara.vitoria@email.com</b><em>enviar →</em></a>
+        <a class="home-contact-channel" href="tel:+5567900000000"><span>Telefone</span><b>(67) 90000-0000</b><em>ligar →</em></a>
+      </div>
+      <p class="home-contact-note">Atendo em <strong>Dourados, MS</strong> e projetos remotos para qualquer lugar do Brasil.</p>
+    </div>
+  </section>
+  <?php $paginaFooter = '01'; require __DIR__ . '/partials/footer.php'; ?>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/js/portfolio.js"></script>
   <script src="/assets/js/projetos.js"></script>
