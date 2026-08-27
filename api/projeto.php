@@ -81,7 +81,7 @@ $imagemMiniatura = static function (string $url): string {
           <?php foreach ($galeria as $indice => $imagem): ?>
             <figure>
               <svg viewBox="0 0 300 375" preserveAspectRatio="none" aria-hidden="true">
-                <rect x="3" y="3" width="294" height="380" rx="10" />
+                <rect x="1" y="1" width="298" height="373" rx="8" />
               </svg>
               <button class="gallery-trigger" type="button" data-gallery-index="<?= $indice ?>" data-image="<?= $esc($imagem) ?>" data-alt="<?= $esc($projeto['nome']) ?> — detalhe <?= $indice + 1 ?>" aria-label="Ampliar foto <?= $indice + 1 ?> do projeto <?= $esc($projeto['nome']) ?>">
                 <img src="<?= $esc($imagemMiniatura($imagem)) ?>" alt="<?= $esc($projeto['nome']) ?> — detalhe <?= $indice + 1 ?>" loading="lazy" decoding="async">
