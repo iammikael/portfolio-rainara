@@ -16,8 +16,10 @@ $projeto = $projetos[$indiceAtual];
 $anterior = $projetos[($indiceAtual - 1 + count($projetos)) % count($projetos)];
 $proximo = $projetos[($indiceAtual + 1) % count($projetos)];
 $esc = static fn (string $valor): string => htmlspecialchars($valor, ENT_QUOTES, 'UTF-8');
+
 $descricao = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit vel eros a tempor, in sagittis facilisis nulla a aliquam.';
 $desafio = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porta sem nec ante facilisis commodo.';
+
 $galeria = [
     $projeto['imagem'],
     'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop',
@@ -49,7 +51,6 @@ $imagemMiniatura = static function (string $url): string {
     <div class="grain" aria-hidden="true"></div>
     <svg class="rough-filter" aria-hidden="true" focusable="false"><filter id="rough" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="noise"/><feDisplacementMap in="SourceGraphic" in2="noise" scale="4"/></filter></svg>
     <nav class="detail-nav">
-      <span class="detail-mark">R.V · ARQUITETURA</span>
       <a href="/#projetos" class="back-link" aria-label="Voltar aos projetos"><svg viewBox="0 0 20 14" aria-hidden="true"><path d="M18,7 L2,7 M8,1 L2,7 L8,13" /></svg>voltar aos projetos</a>
     </nav>
 
@@ -59,16 +60,38 @@ $imagemMiniatura = static function (string $url): string {
       </section>
 
       <header class="project-head">
-        <div class="titleblock"><h1><?= $esc($projeto['nome']) ?><svg viewBox="0 0 320 16" aria-hidden="true"><path d="M4,8 C80,14 220,14 316,6" /></svg></h1><p><?= $esc($projeto['categoria']) ?> · Dourados, MS · <?= $esc($projeto['ano']) ?></p></div>
-        <div class="chips"><span class="chip"><?= $esc($projeto['tipo']) ?></span><span class="chip"><?= $esc($projeto['area']) ?></span><span class="chip chip-number"><?= $esc($projeto['numero']) ?></span></div>
+        <div class="titleblock"><h1><?= $esc($projeto['nome']) ?><svg viewBox="0 0 320 16" aria-hidden="true"><path d="M4,8 C80,14 220,14 316,6" /></svg></h1><p><?= $esc($projeto['cidade'] ?? 'Cidade não consta') ?> . <?= $esc($projeto['ano'] ?? '0000') ?></p></div>
+        <div class="chips"><span class="chip"><?= $esc($projeto['tipo']) ?></span><span class="chip"><?= $esc($projeto['area']) ?></span></span></div>
       </header>
 
-      <section class="detail-about"><span>// sobre o projeto</span><p><?= $esc($descricao) ?></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet maximus odio eu dignissim, sed tristique nunc posuere.</p></section>
-      <aside class="margin-note"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5,18 C9,7 20,5 27,12 M21,8 L27,12 L22,18" /></svg><p><?= $esc($desafio) ?></p></aside>
+      <section class="detail-about"><span>Sobre o projeto</span><p><?= $esc($descricao) ?></p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet maximus odio eu dignissim, sed tristique nunc posuere.</p></section>
+      <aside class="margin-note"></aside>
 
-      <section class="study"><img src="/assets/img/planta-real-1200.jpg" width="1200" height="591" alt="Planta baixa do projeto <?= $esc($projeto['nome']) ?>" loading="lazy" decoding="async"><div><span>Estudo de planta</span><h2>Da planta à obra</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit vel eros a tempor, in sagittis facilisis nulla a aliquam.</p></div></section>
+      <section class="study">
+        <img src="/assets/img/planta-real-1200.jpg" width="1200" height="591" alt="Planta baixa do projeto <?= $esc($projeto['nome']) ?>" loading="lazy" decoding="async">
+        <div>
+          <h2>Estudo de planta</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit vel eros a tempor, in sagittis facilisis nulla a aliquam.</p>
+        </div>
+      </section>
 
-      <section class="detail-gallery"><p>Galeria · execução</p><div class="gallery-grid"><?php foreach ($galeria as $indice => $imagem): ?><figure><svg viewBox="0 0 300 375" preserveAspectRatio="none" aria-hidden="true"><rect x="3" y="3" width="294" height="369" rx="10" /></svg><button class="gallery-trigger" type="button" data-gallery-index="<?= $indice ?>" data-image="<?= $esc($imagem) ?>" data-alt="<?= $esc($projeto['nome']) ?> — detalhe <?= $indice + 1 ?>" aria-label="Ampliar foto <?= $indice + 1 ?> do projeto <?= $esc($projeto['nome']) ?>"><img src="<?= $esc($imagemMiniatura($imagem)) ?>" alt="<?= $esc($projeto['nome']) ?> — detalhe <?= $indice + 1 ?>" loading="lazy" decoding="async"><span>ampliar foto</span></button><figcaption>fl. <?= str_pad((string) ($indice + 1), 2, '0', STR_PAD_LEFT) ?> · detalhe do projeto</figcaption></figure><?php endforeach; ?></div></section>
+      <section class="detail-gallery">
+        <p>Galeria</p>
+        <div class="gallery-grid">
+          <?php foreach ($galeria as $indice => $imagem): ?>
+            <figure>
+              <svg viewBox="0 0 300 375" preserveAspectRatio="none" aria-hidden="true">
+                <rect x="3" y="3" width="294" height="380" rx="10" />
+              </svg>
+              <button class="gallery-trigger" type="button" data-gallery-index="<?= $indice ?>" data-image="<?= $esc($imagem) ?>" data-alt="<?= $esc($projeto['nome']) ?> — detalhe <?= $indice + 1 ?>" aria-label="Ampliar foto <?= $indice + 1 ?> do projeto <?= $esc($projeto['nome']) ?>">
+                <img src="<?= $esc($imagemMiniatura($imagem)) ?>" alt="<?= $esc($projeto['nome']) ?> — detalhe <?= $indice + 1 ?>" loading="lazy" decoding="async">
+                <span>ampliar foto</span>
+              </button>
+              <!--<figcaption>fl. <?= str_pad((string) ($indice + 1), 2, '0', STR_PAD_LEFT) ?> · detalhe do projeto</figcaption>-->
+            </figure>
+            <?php endforeach; ?>
+          </div>
+        </section>
 
       <nav class="project-pagination"><a href="/projetos/<?= $esc($anterior['slug']) ?>">← <?= $esc($anterior['nome']) ?></a><a href="/projetos/<?= $esc($proximo['slug']) ?>"><?= $esc($proximo['nome']) ?> →</a></nav>
     </div>
