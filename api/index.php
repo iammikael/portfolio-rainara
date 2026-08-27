@@ -132,19 +132,28 @@ $imagemMiniatura = static function (string $url): string {
   <section id="contato" class="home-contact-section">
     <div class="container">
       <header class="home-contact-header">
-        <p>// vamos conversar</p>
         <h2>Contato</h2>
-        <p class="home-contact-lead">Tem um projeto em mente, uma reforma ou só quer trocar ideia sobre um croqui? <strong>Me chama</strong> — respondo rapidinho por WhatsApp.</p>
+        <p class="home-contact-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus blandit vel eros a tempor</p>
       </header>
       <div class="home-contact-channels">
         <a class="home-contact-channel accent" href="https://wa.me/5567900000000" target="_blank" rel="noopener"><span>WhatsApp</span><b>(67) 90000-0000</b><em>chamar →</em></a>
-        <a class="home-contact-channel" href="mailto:rainara.vitoria@email.com"><span>E-mail</span><b>rainara.vitoria@email.com</b><em>enviar →</em></a>
-        <a class="home-contact-channel" href="tel:+5567900000000"><span>Telefone</span><b>(67) 90000-0000</b><em>ligar →</em></a>
+        <a class="home-contact-channel" href="mailto:teste@email.com"><span>E-mail</span><b>teste@email.com</b><em>enviar →</em></a>
       </div>
-      <p class="home-contact-note">Atendo em <strong>Dourados, MS</strong> e projetos remotos para qualquer lugar do Brasil.</p>
+      <div class="home-contact-bottom">
+        <div class="home-contact-socials" aria-label="Redes sociais">
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Behance">B</a>
+        </div>
+        <p class="home-contact-note">Atendo em <strong>Dourados, MS</strong> e projetos remotos para qualquer lugar do Brasil.</p>
+      </div>
     </div>
   </section>
-  <?php $paginaFooter = '01'; require __DIR__ . '/partials/footer.php'; ?>
+  <footer class="site-footer">
+    <div class="site-footer-line">
+      <span>Dourados, MS - 2026</span>
+    </div>
+    <p class="site-footer-credit">desenvolvido por <a href="https://github.com/mikaelbueno" target="_blank" rel="noopener">Mikael Bueno</a></p>
+  </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/js/portfolio.js"></script>
   <script src="/assets/js/projetos.js"></script>

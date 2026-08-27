@@ -94,7 +94,6 @@ $imagemMiniatura = static function (string $url): string {
         </section>
 
       <nav class="project-pagination"><a href="/projetos/<?= $esc($anterior['slug']) ?>">← <?= $esc($anterior['nome']) ?></a><a href="/projetos/<?= $esc($proximo['slug']) ?>"><?= $esc($proximo['nome']) ?> →</a></nav>
-      <?php $paginaFooter = '03'; require __DIR__ . '/partials/footer.php'; ?>
     </div>
   </main>
   <dialog class="gallery-preview" aria-labelledby="gallery-preview-caption">

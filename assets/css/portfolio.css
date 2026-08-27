@@ -304,7 +304,7 @@ html{
   background: var(--marrom);
 }
 .site-footer-line {
-  display: flex;
+  text-align: center;
   justify-content: space-between;
   gap: 1rem;
   max-width: 1140px;
@@ -314,12 +314,18 @@ html{
   color: rgba(225, 209, 184, .78);
   font-size: .75rem;
 }
-.site-footer-credit { margin: 1.35rem 0 0; text-align: center; color: rgba(225, 209, 184, .55); font-size: .7rem; }
+.site-footer-credit{
+  margin: 1.35rem 0 0;
+  text-align: center;
+  align-items: center;
+  color: rgba(225, 209, 184, .55);
+  font-size: .7rem;
+}
 .site-footer a { color: var(--creme); }
 @media (max-width: 575.98px) { .site-footer-line { font-size: .68rem; } }
 
 .home-contact-section {
-  padding: 6rem 0;
+  padding: 4.5rem 0 3.25rem;
   color: var(--creme);
   background: var(--marrom);
 }
@@ -328,14 +334,19 @@ html{
 .home-contact-header h2 { margin: 0; font: 600 clamp(3.5rem, 6vw, 5.3rem)/.8 Caveat, cursive; }
 .home-contact-lead { margin: 1.65rem 0 0 !important; color: rgba(225, 209, 184, .78) !important; font-size: 1rem !important; line-height: 1.65; letter-spacing: normal !important; text-transform: none !important; }
 .home-contact-lead strong, .home-contact-note strong { color: var(--dourado); font-weight: normal; }
-.home-contact-channels { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; max-width: 900px; margin-top: 3rem; }
-.home-contact-channel { position: relative; min-height: 94px; padding: 1rem 1.1rem; border: 1px solid var(--creme); border-radius: .55rem; color: var(--creme); text-decoration: none; }
+.home-contact-channels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .85rem; max-width: 790px; margin-top: 2rem; }
+.home-contact-channel { position: relative; min-height: 56px; padding: .7rem 2.8rem; border: 1px solid var(--creme); border-radius: .55rem; color: var(--creme); text-decoration: none; }
 .home-contact-channel.accent { border-color: var(--dourado); }
 .home-contact-channel span, .home-contact-channel b { display: block; }
 .home-contact-channel span { color: rgba(225, 209, 184, .78); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; }
-.home-contact-channel b { margin-top: .35rem; font-size: 1rem; font-weight: normal; }
+.home-contact-channel b { margin-top: .2rem; font-size: .85rem; font-weight: normal; }
 .home-contact-channel.accent b { color: var(--dourado); }
-.home-contact-channel em { position: absolute; right: 1rem; bottom: .85rem; color: var(--dourado); font-size: .75rem; font-style: normal; opacity: 0; transition: opacity .2s ease; }
+.home-contact-channel em { position: absolute; right: 1rem; bottom: .7rem; color: var(--dourado); font-size: .7rem; font-style: normal; opacity: 0; transition: opacity .2s ease; }
 .home-contact-channel:hover em, .home-contact-channel:focus-visible em { opacity: 1; }
-.home-contact-note { margin: 2rem 0 0; padding-left: 1rem; border-left: 2px solid var(--dourado); color: rgba(225, 209, 184, .78); font-size: .9rem; }
+.home-contact-bottom { display:flex; align-items:center; gap:1rem; margin-top:.85rem; }
+.home-contact-socials { display:flex; gap:.5rem; }
+.home-contact-socials a { display:grid; place-items:center; width:36px; height:36px; border:1px solid var(--creme); border-radius:.45rem; color:var(--creme); text-decoration:none; font-size:.7rem; }
+.home-contact-socials a:hover { border-color:var(--dourado); color:var(--dourado); }
+.home-contact-note { max-width:420px; margin:0; padding-left:1rem; border-left:2px solid var(--dourado); color:rgba(225,209,184,.78); font-size:.78rem; line-height:1.45; }
 @media (max-width: 767.98px) { .home-contact-section { padding: 4.5rem 0; } .home-contact-channels { grid-template-columns: 1fr; max-width: 520px; } }
+@media (max-width: 450px) { .home-contact-bottom { align-items:flex-start; flex-direction:column; } }
